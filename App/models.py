@@ -47,3 +47,12 @@ class Prestamo(models.Model):
 
     def __str__(self):
         return str(self.persona.nombre + " " + self.material.titulo)
+
+class TMaterial(models.Model):
+    libro = models.ForeignKey(Libro, null = True, default = None, on_delete=models.CASCADE)
+    revista = models.ForeignKey(Revista, null = True, default = None, on_delete=models.CASCADE)
+
+class TPersona(models.Model):
+    alumno = models.ForeignKey('Alumno', null = True, default = None, on_delete=models.CASCADE)
+    profesor = models.ForeignKey('Profesor', null = True, default = None, on_delete=models.CASCADE)
+
